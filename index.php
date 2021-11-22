@@ -1,4 +1,4 @@
 <?php
-echo "test one!";
+echo "<b> test one!</b>";
 die("end");
 ?>
