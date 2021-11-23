@@ -1,2 +1,2 @@
 questo è il readme
-studio uso git
+studio uso git da parte mia
