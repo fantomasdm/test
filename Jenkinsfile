@@ -8,6 +8,11 @@ pipeline {
             }
         }
         stage('Test') {
+            when{
+                expression{
+                    BRANC_NAME == 'MAIN'
+                }
+            }
             steps {
                 echo 'Testing..'
             }
@@ -16,6 +21,18 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
+        }
+    }
+    post
+    {
+        always{
+            echo 'sempre'
+        }
+        success{
+            echo 'tutto bene'
+        }
+        failure{
+            echo 'andata male'
         }
     }
 }
