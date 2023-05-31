@@ -1,16 +1,20 @@
 pipeline {
     agent any
-
+    parameters{
+        chioice(name:'VERSION',choices:['1','2'], description:'che versione')
+        booleanParam(name:'execTests',defaultValue:True, description:'faccio i tests?')
+        string(name:'WHOIS',defaultValue:'Non sono stato io',description:'chi è stato a farlo'?)
+    }
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo "Building.. è stato ${WHOIS}"
             }
         }
         stage('Test') {
             when{
                 expression{
-                    BRANC_NAME == 'MAIN'
+                    BRANC_NAME == 'main' || params.execTests == true
                 }
             }
             steps {
