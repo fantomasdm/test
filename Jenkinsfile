@@ -14,7 +14,7 @@ pipeline {
         stage('Test') {
             when{
                 expression{
-                    BRANC_NAME == 'main' || params.execTests == true
+                    BRANC_NAME == 'main' || params.execTests == True
                 }
             }
             steps {
