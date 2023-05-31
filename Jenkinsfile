@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building.. è stato ${WHOIS}"
+                echo "Building.. è stato ${params.WHOIS}"
             }
         }
         stage('Test') {
@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo "Deploying.... versione: ${params.VERSION}"
             }
         }
     }
