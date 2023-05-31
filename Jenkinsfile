@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters{
         choice(name:'VERSION',choices:['1','2'], description:'che versione')
-        booleanParam(name:'execTests',defaultValue:True, description:'faccio i tests?')
+        booleanParam(name:'execTests',defaultValue:true, description:'faccio i tests?')
         string(name:'WHOIS',defaultValue:'Non sono stato io',description:'chi è stato a farlo?')
     }
     stages {
@@ -14,7 +14,7 @@ pipeline {
         stage('Test') {
             when{
                 expression{
-                    BRANC_NAME == 'main' || params.execTests == True
+                    BRANC_NAME == 'main' || params.execTests == true
                 }
             }
             steps {
