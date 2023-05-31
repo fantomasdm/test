@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters{
-        chioice(name:'VERSION',choices:['1','2'], description:'che versione')
+        choice(name:'VERSION',choices:['1','2'], description:'che versione')
         booleanParam(name:'execTests',defaultValue:True, description:'faccio i tests?')
         string(name:'WHOIS',defaultValue:'Non sono stato io',description:'chi è stato a farlo?')
     }
